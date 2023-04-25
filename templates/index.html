@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="/static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/static/assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="/static/assets/css/Features-Small-Icons-Color-icons.css">
+    <link rel="stylesheet" href="/static/assets/css/Pricing-Centered-badges.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="width: 300px;padding-right: 28px;margin-right: 0;text-align: left;alignment: left;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#" style="text-align: left;alignment: left;">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-gamepad" style="font-size: 52px;"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="font-size: 16px;">GameTrade</span></div>
+                </a>
+                <hr class="sidebar-divider my-0" style="text-align: left;alignment: left;">
+                <ul class="navbar-nav text-light" id="accordionSidebar" style="padding-bottom: 0px;margin-bottom: 0px;margin-top: 90px;text-align: left;alignment: left;">
+                    <li class="nav-item"><a class="nav-link active" href="/" style="font-size: 20px;text-align: left"><i class="fas fa-info-circle" style="font-size: 30px;"></i>&nbsp;Главная</a></li>
+                    {% if not logged %}
+                    <li class="nav-item"><a class="nav-link" href="/login" style="font-size: 20px;text-align: left;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person-circle" style="font-size: 30px;">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                            </svg>&nbsp; Вход</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register" style="font-size: 20px;text-align: left;"><i class="far fa-user" style="font-size: 30px;"></i>&nbsp;Регистрация</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/forgot-password" style="font-size: 20px;text-align: left;"><i class="fas fa-key" style="font-size: 20px;"></i>&nbsp; Забыли пароль?</a>
+                    {% elif logged %}
+                    <li class="nav-item"><a class="nav-link" href="/profile" style="font-size: 20px;text-align: left"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person-circle" style="font-size: 30px;">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                            </svg>&nbsp; Профиль</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/games" style="font-size: 20px;text-align: left"><i class="fas fa-gamepad" style="font-size: 30px;"></i>&nbsp; Каталог</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cart" style="font-size: 20px;text-align: left;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-cart" style="font-size: 30px;">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                            </svg>&nbsp; Корзина</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" style="padding-left: 0px;margin-left: -110px;">
+                <div class="container py-4 py-xl-5" style="padding-top: 0px;margin-bottom: -50px;margin-top: 0px;margin-left: 98px;padding-left: 26px;width: 1000px;">
+                    <section class="py-4 py-xl-5">
+                        <div class="container h-100">
+                            <div class="row h-100">
+                                <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
+                                    <div>
+                                        <h2 class="text fw-bold mb-3" style="font-size: 120px;color: var(--bs-blue);height: 80px;">GameTrade</h2>
+                                        <h1 style="margin-top: 40px;font-size: 30px">Работаем как-то и славно!</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <h1 style="color: var(--bs-primary);font-weight: bold;font-size: 60px;text-align: center;margin-top: 30px;margin-bottom: 30px;">Почему выбирают нас?</h1>
+                    <header></header>
+                    <div class="text-center text-white-50 bg-primary border rounded border-0 p-3" style="width: 1000px;margin-left: -24px;margin-top: 60px;margin-bottom: 0px;padding-left: 0px;">
+                        <div class="row row-cols-2 row-cols-md-4">
+                            <div class="col">
+                                <div class="p-3">
+                                    <h4 class="display-5 fw-bold text-center text-white mb-0">251+</h4>
+                                    <p class="mb-0" style="font-size: 20px;text-align: center;">Счастивых клиентов</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <h4 class="display-5 fw-bold text-center text-white mb-0">78+</h4>
+                                    <p class="mb-0" style="font-size: 20px;text-align: center;">Положительных Отзывов</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <h4 class="display-5 fw-bold text-center text-white mb-0">362+</h4>
+                                    <p class="mb-0" style="font-size: 20px;text-align: center;">Проданых игр</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3">
+                                    <h4 class="display-5 fw-bold text-center text-white mb-0">26+</h4>
+                                    <p class="mb-0" style="font-size: 20px;text-align: center;">Ключей разыграно</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container py-4 py-xl-5" style="height: 600px;margin-right: 26px;padding-right: 0px;margin-left: 0px;padding-left: 102px;">
+                    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="padding-bottom: 0px;margin-bottom: 0px;padding-right: 0px;width: 1000px;background: var(--bs-blue);margin-right: 0px;margin-top: 30px;margin-left: 0px;padding-left: 0px;height: 650px;">
+                        <div class="col" style="height: 600px;">
+                            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 500px;padding-top: 0px;padding-bottom: 0px;width: 311px;margin-left: 0px;padding-left: 0px;" src="/static/img/far_cry_6.png" width="307" height="500">
+                                <div class="card-body p-4" style="font-size: 20px;padding-left: 0px;margin-left: 0px;height: 110px;margin-bottom: -10px;">
+                                    <h4 class="card-title" style="font-size: 30px;margin-left: 0px;text-align: center;padding-left: 0px;padding-bottom: 0px;margin-bottom: 40px;">Far cry 6</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 500px;" src="/static/img/Resident_Evil_4_remake.png" width="406" height="500">
+                                <div class="card-body p-4" style="padding-bottom: 0px;height: 110px;margin-bottom: -10px;">
+                                    <h4 class="card-title" style="font-size: 28px;text-align: center;margin-left: 0px;padding-left: 0px;">Resident evil 4 remastered</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4">
+                            <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 500px;" src="/static/img/Fallout_76.jpg" width="406" height="500">
+                                <div class="card-body p-4" style="padding-bottom: 0px;height: 110px;margin-bottom: -10px;">
+                                    <h4 class="card-title" style="font-size: 28px;text-align: center;margin-left: 0px;padding-left: 0px;">Fallout 76</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-white bg-primary border rounded border-0 p-4 p-lg-5 py-4 py-xl-5" style="margin-bottom: -50px;margin-top: 170px;margin-left: 100px;width: 1000px;">
+                    <div class="row mb-5">
+                        <div class="col-md-8 col-xl-6 text-center mx-auto">
+                            <h2 class="text-white" style="font-weight: bold;font-size: 40px;">Плюсы нашего магазина:</h2>
+                        </div>
+                    </div>
+                    <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="font-size: 24px;">
+                        <div class="col">
+                            <div class="d-flex">
+                                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon" style="width: 40px;height: 40px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-cart-check" style="font-size: 30px;">
+                                        <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"></path>
+                                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h4 class="text-white" style="font-size: 24px;font-weight: bold;margin-top: 6px;">Проверенные продавцы</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex">
+                                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon" style="width: 40px;height: 40px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-speedometer2" style="font-size: 30px;">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+                                        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
+                                    </svg></div>
+                                <div class="px-3" style="font-weight: bold;margin-top: 6px;">
+                                    <h4 class="text-white" style="font-size: 24px;font-weight: bold;">Быстрое получение товара</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex">
+                                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon" style="width: 40px;height: 40px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-headset" style="font-size: 30px;">
+                                        <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"></path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h4 class="text-white" style="font-size: 24px;font-weight: bold;margin-top: -6px;">Круглосуточная техническая поддержка</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex" style="font-weight: bold;">
+                                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon" style="width: 40px;height: 40px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-award" style="font-size: 32px;">
+                                        <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z"></path>
+                                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"></path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h4 class="text-white" style="font-size: 24px;font-weight: bold;margin-top: 6px;">Гарантия работы товара</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex">
+                                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon" style="width: 40px;height: 40px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-currency-dollar" style="font-size: 30px;">
+                                        <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"></path>
+                                    </svg></div>
+                                <div class="px-3">
+                                    <h4 class="text-white" style="font-size: 24px;font-weight: bold;margin-top: -6px;">Низкие цены относительно конкурентов</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex">
+                                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon" style="width: 40px;height: 40px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dice-6" style="font-size: 30px;">
+                                        <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z"></path>
+                                        <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-8 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+                                    </svg></div>
+                                <div class="px-3" style="margin-top: -6px;">
+                                    <h4 class="text-white" style="font-size: 24px;font-weight: bold;">Розыгрыш ключей и программа лояльности</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container py-4 py-xl-5" style="margin-left: 100px;margin-right: -24px;width: 1000px;">
+                    <div class="row mb-5" style="margin-right: 0px;margin-left: 0px;margin-top: 100px;margin-bottom: 0px;padding-bottom: 0px;width: 1000px;">
+                        <div class="col-md-8 col-xl-6 text-center mx-auto">
+                            <h2 style="font-size: 42px;">Покупка Игр</h2>
+                            <p class="w-lg-50" style="font-size: 26px;">При покупке рандомного ключа, стоимость полученной игры будет отличаться на неболее чем на 200 рублей от заявленной стоимости.</p>
+                        </div>
+                    </div>
+                    <div class="row gy-4 gy-xl-0 row-cols-1 row-cols-md-2 row-cols-xl-3 d-xl-flex align-items-xl-center gutter-y">
+                        <div class="col-xxl-4">
+                            <div class="card">
+                                <div class="card-body text-center p-4" style="height: 350px;">
+                                    <h6 class="text-uppercase text-muted card-subtitle" style="font-size: 20px;">Indie ключ</h6>
+                                    <h4 class="display-4 fw-bold card-title" style="font-size: 50px;">299 Руб.</h4><img width="100" height="80" style="height: 200px;width: 200px;" src="/static/img/Random_game_basic.png">
+                                </div>
+                                <div class="card-footer p-4" style="height: 100px;">
+                                    <div>
+                                        <ul class="list-unstyled"></ul>
+                                    </div><a class="btn btn-primary d-block w-100" role="button" href="/games">Купить</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-primary border-2">
+                                <div class="card-body text-center p-4" style="height: 350px;"><span class="badge rounded-pill bg-primary position-absolute top-0 start-50 translate-middle text-uppercase">Выбор покупателей</span>
+                                    <h6 class="text-uppercase text-muted card-subtitle" style="font-size: 20px;">AAA Ключ</h6>
+                                    <h4 class="display-4 fw-bold card-title" style="font-size: 50px;">899 Руб.</h4><img style="width: 200px;height: 200px;" src="/static/img/Random_game_AAA.png">
+                                </div>
+                                <div class="card-footer p-4" style="height: 100px;">
+                                    <div></div><a class="btn btn-primary d-block w-100" role="button" href="/games">Купить</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body text-center p-4" style="height: 350px;">
+                                    <h6 class="text-uppercase text-muted card-subtitle" style="font-size: 20px;">Преимум Ключ</h6>
+                                    <h4 class="display-4 fw-bold card-title" style="font-size: 50px;">1399 Руб.</h4><img width="100" height="80" style="width: 200px;height: 200px;" src="/static/img/Random_game_prem.png">
+                                </div>
+                                <div class="card-footer p-4" style="height: 100px;">
+                                    <div>
+                                        <ul class="list-unstyled">
+                                            <li class="d-flex mb-2"></li>
+                                        </ul>
+                                    </div><a class="btn btn-primary d-block w-100" role="button" href="/games">Купить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="text-center position-relative py-4 py-xl-5">
+                        <h1 style="font-weight: bold;text-align: center;font-size: 60px;color: var(--bs-blue);margin-bottom: -50px;margin-top: 60px;">Новинки 2023 года!</h1><iframe class="border rounded-0 d-xxl-flex justify-content-xxl-center align-items-xxl-end" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/xZWBIRcg8Rs" width="1000" style="text-align: center;margin-top: 80px;position: relative;padding-left: 0px;margin-left: 0px;" height="600"></iframe>
+                        <div class="container position-relative" style="margin-bottom: -50px;">
+                            <div class="row mb-5" style="margin-top: 90px;">
+                                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                                    <h2 style="font-size: 50px;">Служба поддержки</h2>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-4" style="margin-right: 0px;padding-right: 0px;padding-left: 60px;">
+                                    <div class="d-flex flex-column justify-content-center align-items-start h-100">
+                                        <div class="d-flex align-items-center p-3" style="font-size: 20px;">
+                                            <div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-telephone">
+                                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
+                                                </svg></div>
+                                            <div class="px-2">
+                                                <p class="mb-0">+79856961074</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center p-3">
+                                            <div class="px-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-8" style="width: 400px;margin-left: 30px;padding-left: 50px;">
+                                    <div class="d-flex align-items-center p-3">
+                                        <div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-envelope">
+                                                <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"></path>
+                                            </svg></div>
+                                        <div class="px-2">
+                                            <p class="mb-0" style="font-size: 20px;">autogametrade@yandex.ru</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><iframe allowfullscreen="" frameborder="0" loading="lazy" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCbWm4wPbicxFaMfYjZDZHJDS4DSKIf1q8&amp;q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C+%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F%2C+%D1%85%D0%B0%D0%BC%D0%BE%D0%B2%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9+%D0%B2%D0%B0%D0%BB+26&amp;zoom=16" width="100%" height="400" style="margin-bottom: 0px;margin-top: 80px;"></iframe>
+                    </section>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer" style="width: 1000px;margin-left: -50px;">
+                <footer class="text-center py-4" style="margin-left: -100px;padding-left: 180px;margin-right: -28px;">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-lg-3">
+                            <div class="col"></div>
+                            <div class="col">
+                                <p class="text-muted my-2">Copyright&nbsp;© 2023 GameTrade</p>
+                                <ul class="list-inline my-2">
+                                    <li class="list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                                    <li class="list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+                                </ul>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </footer>
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/theme.js"></script>
+</body>
+
+</html>

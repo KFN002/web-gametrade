@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <title>Регистрация</title>
+    <div class="container" style="align-content: center">
+        <div class="card shadow-lg o-hidden border-0 my-5" style="align-content: center">
+            <div class="card-body p-0" style="align-content: center;margin-bottom: 40px">
+                <div class="row" style="align-content: center; margin-left: 300px">
+                    <div class="col-lg-7" style="align-content: center">
+                        <p class="p-5" style="align-content: center">
+                            <div class="text-center">
+                                <h4 style="font-size: 40px;color: #4e73df;margin-bottom: 30px;margin-top: -60px">Создать аккаунт в GameTrade!</h4>
+                            </div>
+                            <form class="user" action="" method="post" style="alignment: center">
+                                {{ form.hidden_tag() }}
+                                <div class="text-center">
+                                    {{ form.email.label }}<br>
+                                    {{ form.email(class="form-control form-control-user", type="email") }}<br>
+                                    {% for error in form.email.errors %}
+                                        <p class="alert alert-danger" role="alert">
+                                            {{ error }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="text-center">
+                                    {{ form.password.label }}<br>
+                                    {{ form.password(class="form-control form-control-user", type="password") }}<br>
+                                    {% for error in form.password.errors %}
+                                        <p class="alert alert-danger" role="alert">
+                                            {{ error }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="text-center">
+                                    {{ form.password_again.label }}<br>
+                                    {{ form.password_again(class="form-control form-control-user", type="password") }}<br>
+                                    {% for error in form.password_again.errors %}
+                                        <p class="alert alert-danger" role="alert">
+                                            {{ error }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="text-center">
+                                    {{ form.name.label }}<br>
+                                    {{ form.name(class="form-control form-control-user") }}<br>
+                                    {% for error in form.name.errors %}
+                                        <p class="alert alert-danger" role="alert">
+                                            {{ error }}
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                                <p style="align-content: center;align-items: center">{{ form.submit(type="submit", class="btn btn-primary d-block btn-user w-100", style="margin-top: 0px") }}</p>
+                                {{message}}
+                            </form>
+                            <div class="text-center"><a class="small" href="/forgot-password">Забыли пароль?</a></div>
+                            <div class="text-center"><a class="small" href="/login">Уже есть аккаунт? Войти!</a></div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

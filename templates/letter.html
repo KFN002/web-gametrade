@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <body class="bg-gradient-primary">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0" style="margin-bottom: -90px">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-flex"><img style="width: 600px;height: 600px;margin-top: 100px;margin-right: 0;margin-bottom: 0;padding: 10px 0 200px;" src="/static/img/login.png"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text mb-5" style="color: #4e73df;font-size: 30px">GameTrade</h4>
+                                        <h5 class="text mb-4" style="color: #4e73df;font-size: 24px;margin-top: 20px">Восстановление аккаунта</h5>
+                                        <p class="text mb-5" style="color: #4e73df;font-size: 20px;margin-top: 50px" href="{{ link }}">Восстановить</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    </body>

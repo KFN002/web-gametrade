@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="/static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/static/assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="/static/assets/css/Features-Small-Icons-Color-icons.css">
+    <link rel="stylesheet" href="/static/assets/css/Pricing-Centered-badges.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="width: 300px;padding-right: 28px;margin-right: 0;text-align: left;alignment: left;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#" style="text-align: left;alignment: left;">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-gamepad" style="font-size: 52px;"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="font-size: 16px;">GameTrade</span></div>
+                </a>
+                <hr class="sidebar-divider my-0" style="text-align: left;alignment: left;">
+                <ul class="navbar-nav text-light" id="accordionSidebar" style="padding-bottom: 0;margin-bottom: 0;margin-top: 90px;text-align: left;alignment: left;">
+                    <li class="nav-item"><a class="nav-link" href="/" style="font-size: 20px;text-align: left;"><i class="fas fa-info-circle" style="font-size: 30px;"></i>&nbsp;Главная</a></li>
+                    {% if not logged %}
+                    <li class="nav-item"><a class="nav-link" href="/login" style="font-size: 20px;text-align: left;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person-circle" style="font-size: 30px;">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                            </svg>&nbsp; Вход</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register" style="font-size: 20px;text-align: left;"><i class="far fa-user" style="font-size: 30px;"></i>&nbsp;Регистрация</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/forgot-password" style="font-size: 20px;text-align: left;"><i class="fas fa-key" style="font-size: 20px;"></i>&nbsp; Забыли пароль?</a></li>
+                    {% elif logged %}
+                    <li class="nav-item"><a class="nav-link" href="/profile" style="font-size: 20px;text-align: left;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person-circle" style="font-size: 30px;">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                            </svg>&nbsp; Профиль</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link active" href="/games" style="text-align: left;font-size: 20px;"><i class="fas fa-gamepad" style="font-size: 30px;"></i>&nbsp; Каталог</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cart" style="font-size: 20px;text-align: left;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-cart" style="font-size: 30px;">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                            </svg>&nbsp; Корзина</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button></div>
+                </nav>
+                <div class="container-fluid">
+                    <h3 class="text mb-4" style="font-size: 50px;color: #4e73df">Каталог</h3>
+                    <div class="card shadow">
+                        <div class="card-body">
+                        <form method="POST">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <nav class="navbar navbar-light navbar-expand-md">
+                                    <div class="collapse navbar-collapse" id="navcol-1">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item" style="align-items: center;align-content: center">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <input type="search" class="form-control rounded w-auto" placeholder="Поиск" aria-label="Search" aria-describedby="search-addon" name="need" value="{{ finder_value }}"/>
+                                                            <button type="submit" class="btn btn-primary d-block w-auto" name="btn_finder" value="finder"><i class="fas fa-search"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col" style="margin-left: 10px">
+                                                        <select style="margin-bottom: 4px" name="sorter" class="form-select">
+                                                            <optgroup label="Сортировать">
+                                                                {% if selected_sort == 'poor' %}
+                                                                    <option value="poor" selected>По цене: сначала дешевые</option>
+                                                                    <option value="rich">По цене: сначала дорогие</option>
+                                                                {% elif selected_sort == 'rich' %}
+                                                                    <option value="poor">По цене: сначала дешевые</option>
+                                                                    <option value="rich" selected>По цене: сначала дорогие</option>
+                                                                {% endif %}
+                                                            </optgroup>
+                                                        </select>
+                                                        <button class="btn btn-primary d-block w-100" type="submit" role="button" value="sort_filter" name="btn_fs">Отсортировать</button>
+                                                    </div>
+                                                </div>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <table class="table my-0" id="dataTable">
+                                    <tfoot>
+                                    <tr>
+                                        <td style="font-size: 10px"></td>
+                                        <td style="font-size: 10px">Игра</td>
+                                        <td style="font-size: 10px">Цена</td>
+                                        <td style="font-size: 10px">Описание</td>
+                                    </tr>
+                                    {% for item in data %}
+                                        <tr>
+                                            <td style="font-size: 20px"><img src="{{ item.picture }}"></td>
+                                            <td style="font-size: 20px">{{ item.name }}</td>
+                                            <td style="font-size: 18px">{{ item.price }} Руб.</td>
+                                            <td style="font-size: 14px">{{ item.description }}</td>
+                                            <td style="font-size: 16px"><button class="btn btn-primary d-block w-100" type="submit" role="button" value="{{ item.id }}" name="btn">Добавить в корзину</button></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <footer class="text-center py-4">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-lg-3">
+                            <div class="col"></div>
+                            <div class="col">
+                                <p class="text-muted my-2">Copyright&nbsp;© 2023 GameTrade</p>
+                                <ul class="list-inline my-2">
+                                    <li class="list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                                    <li class="list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+                                </ul>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </footer>
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="/static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/static/assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="/static/assets/css/Features-Small-Icons-Color-icons.css">
+    <link rel="stylesheet" href="/static/assets/css/Pricing-Centered-badges.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+            <main role="main" class="container">
+            {% block content %}{% endblock %}
+            </main>
+
+            <footer class="bg-white sticky-footer">
+                <footer class="text-center py-4">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-lg-3">
+                            <div class="col"></div>
+                            <div class="col">
+                                <p class="text-muted my-2">Copyright&nbsp;© 2023 GameTrade</p>
+                                <ul class="list-inline my-2">
+                                    <li class="list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                                    <li class="list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+                                </ul>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </footer>
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/theme.js"></script>
+</body>
+
+</html>

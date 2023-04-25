@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <title>Вход</title>
+    <body class="bg-gradient-primary">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0" style="margin-bottom: -90px">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-flex"><img style="width: 600px;height: 600px;margin-top: 100px;margin-right: 0;margin-bottom: 0;padding: 10px 0 200px;" src="/static/img/login.png"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text mb-4" style="color: #4e73df; font-size: 30px;margin-top: 100px">!!!Сайт является!!! тестовым никакие ключи он не продает.</h4>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-center"><a class="small" style='color: #4e73df;font-size: 30px' href={{ link }}>Оплатить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
